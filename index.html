@@ -5,29 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Mission 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Yeseva+One&display=swap');
+        .yeseva-one-regular {
+            font-family: "Yeseva One", serif;
+            font-weight: 400;
+            font-style: normal;
+        }        
+        .inter-font {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+    </style>
 </head>
 <body>
     <header>
-        <nav class="flex items-center justify-between px-[150px] py-6 text-gray-800">
-            <a href="index.html"><img src="./images/logo.png" alt="logo" class="w-40 hover:scale-110 duration-300"></a>
+        <nav class="flex items-center justify-between mx-[150px] py-6 text-gray-800">
+            <a href="index.html"><img src="./images/logo.png" alt="logo" class="w-40 hover:scale-110 duration-300 rounded-[10px]"></a>
             <ul class="flex space-x-4">
-                <li class="hover:scale-110 duration-300"><a href="#home">Home</a></li>
-                <li class="hover:scale-110 duration-300"><a href="#about">About</a></li>
-                <li class="hover:scale-110 duration-300"><a href="#blog">Blog</a></li>
-                <li class="hover:scale-110 duration-300"><a href="#contact">Contact</a></li>
-                <li class="hover:scale-110 duration-300"><a href="#signin">Sign In</a></li>
-                <li class="hover:scale-110 duration-300"><a href="#signup">Sign Up</a></li>
-
+                <li class="inter-font font-semibold hover:scale-110 duration-300 border-0 rounded-[5px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#home">Home</a></li>
+                <li class="inter-font font-semibold hover:scale-110 duration-300 border rounded-[5px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#about">About</a></li>
+                <li class="inter-font font-semibold hover:scale-110 duration-300 border rounded-[5px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#blog">Blog</a></li>
+                <li class="inter-font font-semibold hover:scale-110 duration-300 border rounded-[5px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#contact">Contact</a></li>
+                <li class="inter-font font-semibold hover:scale-110 duration-300 border rounded-[5px] p-2.5 bg-[#FF5959] text-white hover:bg-[#4c32c0]"><a href="#signin">Sign In</a></li>
+                <li class="inter-font font-semibold hover:scale-110 duration-300 border rounded-[5px] p-2.5 bg-[#FF5959] text-white hover:bg-[#4c32c0]"><a href="#signup">Sign Up</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <!-- Banner Section -->
-        <section>
-            <h1 class="banner-title">
-                Stay Focused on <br>
-                <span class="">Mission 2022</span>
-            </h1>
+        <section class="flex items-end justify-between gap-[130px] ml-[150px] mr-[85px]">
+            <div class="left">
+                <h1 class="yeseva-one-regular text-[60px] text-base text-[#333333] border-l-8 border-[#FF5959] pl-4">
+                    Stay Focused on <br>
+                    <span class="text-[#FFAD5A]">Mission 2025</span>
+                </h1>
+                <p class="inter-font text-[18px] text-[#3E3E3E] mt-[15px]">
+                    Lorem ipsum dolor sit amet, usu cu esse possit <br>
+                    referrentur, at eam falli deterruisset. No duo populo <br>
+                    animal noluisse, enim
+                </p>
+                <button type="submit" class="inter-font font-bold bg-[#FF5959] text-white px-[37.5px] py-[12px] rounded-[5px] mt-[19px] mb-[33px] hover:bg-[#4c32c0] hover:scale-110 duration-300 cursor-pointer">Explore Now</button>
+                <p class="inter-font text-base text-[#434343]">
+                    Scroll down to explore more about us
+                </p>
+            </div>
+            <div class="right relative hover:scale-110 duration-300">
+                <img src="./images/person/Khan-removebg-preview.png" alt="Khan" class="w-[500px] relative z-10">
+                <img src="./images/shapes/shape-2.png" alt="khan-bg" class="w-[380px] absolute bottom-0 left-14 z-0">
+            </div>
         </section> 
     </main>
     <footer>
