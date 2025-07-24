@@ -4,6 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const toggleBtn = document.getElementById('menu-toggle');
+          const mobileMenu = document.getElementById('mobile-menu');
+          const iconHamburger = document.getElementById('icon-hamburger');
+          const iconClose = document.getElementById('icon-close');
+      
+          toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('-translate-x-full');
+            mobileMenu.classList.toggle('translate-x-0');
+      
+            iconHamburger.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+          });
+      
+          // Close menu on link click
+          document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+              mobileMenu.classList.add('-translate-x-full');
+              mobileMenu.classList.remove('translate-x-0');
+      
+              iconHamburger.classList.remove('hidden');
+              iconClose.classList.add('hidden');
+            });
+          });
+        });
+    </script>
     <title>Mission 2025</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Yeseva+One&display=swap');
@@ -22,33 +49,57 @@
 </head>
 <body>
     <header>
-        <nav class="flex items-center justify-between mx-[150px] py-6 text-gray-800">
-            <a href="index.html"><img src="./images/logo.png" alt="logo" class="w-40 hover:scale-110 duration-300 rounded-[10px]"></a>
-            <ul class="flex space-x-4">
-                <li class="inter-font font-semibold hover:scale-110 duration-300 border-0 rounded-[5px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#home">Home</a></li>
-                <li class="inter-font font-semibold hover:scale-110 duration-300 border rounded-[5px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#about">About</a></li>
-                <li class="inter-font font-semibold hover:scale-110 duration-300 border rounded-[5px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#blog">Blog</a></li>
-                <li class="inter-font font-semibold hover:scale-110 duration-300 border rounded-[5px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#contact">Contact</a></li>
-                <li class="inter-font font-semibold hover:scale-110 duration-300 border rounded-[5px] p-2.5 bg-[#FF5959] text-white hover:bg-[#4c32c0]"><a href="#signin">Sign In</a></li>
-                <li class="inter-font font-semibold hover:scale-110 duration-300 border rounded-[5px] p-2.5 bg-[#FF5959] text-white hover:bg-[#4c32c0]"><a href="#signup">Sign Up</a></li>
+        
+        <nav class="relative flex items-center justify-center lg:justify-between py-6 text-gray-800 max-w-[1140px] mx-auto">
+            <!-- Hamburger / Close Toggle Button -->
+            <button id="menu-toggle" class="absolute left-4 top-1/2 -translate-y-1/2 lg:hidden z-30">
+                <!-- Hamburger Icon -->
+                <svg id="icon-hamburger" class="w-8 h-8 text-gray-800 transition duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <!-- Close Icon (hidden by default) -->
+                <svg id="icon-close" class="w-8 h-8 text-gray-800 hidden transition duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="index.html"><img src="./images/logo.png" alt="logo" class="w-40 items-center hover:scale-110 duration-300 rounded-[10px]"></a>
+            <!-- Desktop Menu -->
+            <ul class="hidden lg:flex lg:space-x-4">
+                <li class="inter-font font-semibold hover:scale-110 duration-300 rounded-[8px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#home">Home</a></li>
+                <li class="inter-font font-semibold hover:scale-110 duration-300 rounded-[8px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#about">About</a></li>
+                <li class="inter-font font-semibold hover:scale-110 duration-300 rounded-[8px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#blog">Blog</a></li>
+                <li class="inter-font font-semibold hover:scale-110 duration-300 rounded-[8px] p-2.5 bg-[#FFAD5A] text-white hover:bg-[#41d2e6]"><a href="#contact">Contact</a></li>
+                <li class="inter-font font-semibold hover:scale-110 duration-300 rounded-[8px] p-2.5 bg-[#FF5959] text-white hover:bg-[#4c32c0]"><a href="#work">Work With Me</a></li>
             </ul>
+            <!-- Slide-in Mobile Menu -->
+            <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-20 lg:hidden">
+                <div class="px-6 py-8">
+                    <ul class="space-y-4 mt-3 ml-13">
+                        <li><a href="#home" class="block text-gray-800 font-medium hover:text-[#41d2e6] hover:scale-105 hover:font-bold duration-200">Home</a></li>
+                        <li><a href="#about" class="block text-gray-800 font-medium hover:text-[#41d2e6] hover:scale-105 hover:font-bold duration-200">About</a></li>
+                        <li><a href="#blog" class="block text-gray-800 font-medium hover:text-[#41d2e6] hover:scale-105 hover:font-bold duration-200">Blog</a></li>
+                        <li><a href="#contact" class="block text-gray-800 font-medium hover:text-[#41d2e6] hover:scale-105 hover:font-bold duration-200">Contact</a></li>
+                        <li><a href="#work" class="block text-ray-800 font-medium hover:text-[#4c32c0] hover:scale-105 hover:font-bold duration-200">Work With Me</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
     <main>
         <!-- Banner Section -->
-        <section class="flex items-end justify-between gap-[130px] ml-[150px] mr-[85px]">
+        <section class="flex flex-col-reverse gap-15 my-10 lg:flex-row lg:items-end lg:justify-between lg:gap-[130px] lg:max-w-[1210px] mx-auto px-0">
             <div class="left">
-                <h1 class="yeseva-one-regular text-[60px] text-base text-[#333333] border-l-8 border-[#FF5959] pl-4">
+                <h1 class="yeseva-one-regular mx-9 text-5xl lg:text-[60px] text-[#333333] border-l-8 border-[#FF5959] pl-4">
                     Stay Focused on <br>
                     <span class="text-[#FFAD5A]">Mission 2025</span>
                 </h1>
-                <p class="inter-font text-[18px] text-[#3E3E3E] mt-[15px]">
+                <p class="inter-font mx-9 text-[18px] text-[#3E3E3E] mt-[15px]">
                     Lorem ipsum dolor sit amet, usu cu esse possit <br>
                     referrentur, at eam falli deterruisset. No duo populo <br>
                     animal noluisse, enim
                 </p>
-                <button type="submit" class="inter-font font-bold bg-[#FF5959] text-white px-[37.5px] py-[12px] rounded-[5px] mt-[19px] mb-[33px] hover:bg-[#4c32c0] hover:scale-110 duration-300 cursor-pointer">Explore Now</button>
-                <p class="inter-font text-base text-[#434343]">
+                <button type="submit" class="inter-font mx-9 font-bold bg-[#FF5959] text-white px-[37.5px] py-[12px] rounded-[5px] mt-[19px] mb-[33px] hover:bg-[#4c32c0] hover:scale-110 duration-300 cursor-pointer">Explore Now</button>
+                <p class="inter-font text-base text-[#434343] mx-9">
                     Scroll down to explore more about us
                 </p>
             </div>
